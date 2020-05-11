@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     double rSalario, rServico, rCapital, gMedico, gEducacao;
-    double impSalario = 0, impServico = 0, impCapital = 0, impTotal = 0, maxDedutivel = 0, gDedutivel = 0;
+    double impSalario = 0, impServico = 0, impCapital = 0, impTotal = 0, maxDedutivel = 0, gDedutivel = 0, deducao = 0;
 
     //Leitura dos dados
     cout << "Renda anual com salario: ";
@@ -43,9 +43,21 @@ int main()
     cout << "Imposto sobre ganho de capital: " << impCapital << endl;
 
     //Deducoes
-    cout << endl << "DEDUCOES: " << endl;
+    cout << endl << "DEDUCOES:" << endl;
     cout << "Maximo dedutivel: " << maxDedutivel << endl;
     cout << "Gastos dedutiveis: " << gDedutivel << endl;
+
+    //Resumo
+    cout << endl << "RESUMO:" << endl;
+    cout << "Imposto bruto total: " << impTotal << endl;
+    if(maxDedutivel < gDedutivel){
+            cout << "Abatimento: " << maxDedutivel << endl;
+            deducao = maxDedutivel;
+    } else {
+        cout << "Abatimento: " << gDedutivel << endl;
+        deducao = gDedutivel;
+    }
+    cout << "Imposto devido: " << impTotal - deducao << endl;
 
     return 0;
 }
